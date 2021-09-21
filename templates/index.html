@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Welcome to the Red Planet!</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">All you need about Mars</a></p>
+
+ 
+    <div class="row">
+    <div class="container-fluid bg-danger text-white text-center">
+        <h3>Latest Mars News</h3>
+        <h4>{{ mars_dictionary.Latest_News }}</h4>
+        <p style="font-size:100%">{{ mars_dictionary.News_Summary }}</p>
+    </div>
+</div>
+
+
+    <div class="card">
+        <div class="container bg-danger text-white">
+            <h3>Featured Mars Image</h3>
+        </div>
+        <img src="{{ mars_dictionary.Featured_Image }}" alt="Featured Image" with="400" height="400">
+    </div>
+
+    <div class="row">
+        <div class="col align-items-center">
+            <div class="container-fluid bg-danger text-white text-center">
+                <h3>Mars Facts</h3>
+                <p style="text-align:center">{{ mars_dictionary.Facts | safe }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <h3>Mars Hemispheres</h3>
+        {% for hemisphere in mars_dictionary.Hemisphere_Images %}
+        <img src="{{ hemisphere.img_url }}" alt="Hemisphere Images" width="400" height="400">
+        <h4>{{ hemisphere.title }}</h4>
+    {% endfor %}
+    </div>
+  
+        </div>
+    </div>
+</body>
+</html>
